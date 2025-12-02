@@ -8,19 +8,19 @@ Modellizzare la struttura di una tabella per memorizzare tutti i dati riguardant
 
 Columns:
 
-- id BIGINT PRIMARYKEY(PK) AUTOIINCREMENT(AI) NOT NULL
-- VIN_NUMBER (Numero di matricola) CHAR(18) NOT NULL, UNIQUE
-- Brand VARCHAR(100) NOT NULL
-- Model CHAR(80) NOT NULL
-- Car_Type (Tipo_di_Auto) NOT NULL 
-- Car_Segment (Segmento_Auto) VARCHAR(50) NULL
-- LICENSE_PLATE (Targha) VARCHAR(20) NOT NULL, UNIQUE
-- Fuel_Type 
-- How_Many_Owners
-- Anno_di_immatricolazione
-- Condition_description TEXT 
-- Cambio 
-- Horse_power
-- Bollino_Ambientale
-- Create_at DATETIME DEFAULT(now())
-- Update_at DATETIME DEFAULT(now())
+- id `BIGINT PRIMARYKEY(PK) AUTOIINCREMENT(AI) NOT NULL`
+- VIN_NUMBER (Numero di matricola) `CHAR(18) NOT NULL, UNIQUE`
+- Brand `VARCHAR(100) NOT NULL`
+- Model `CHAR(80) NOT NULL`
+- Car_Type (Tipo_di_Auto) `VARCHAR(80) NOT NULL` 
+- Car_Segment (Segmento_Auto) `VARCHAR(50) NULL`
+- LICENSE_PLATE (Targha) `VARCHAR(20) NOT NULL, UNIQUE`
+- Fuel_Type (Carburante) `VARCHAR(30) NOT NULL` 
+- How_Many_Owners(Proprietari) `TINYINT NOT NULL`
+- REGISTRATION_YEAR(Anno_di_immatricolazione)  `YEAR or INT NOT NULL`
+- Condition_description(Condizioni) `TEXT NULL`
+- TRASMISSION_TYPE(Cambio) `VARCHAR(20) NOT NULL` 
+- Horse_power(Cavali di Potenza) `SMALLINT NULL`
+- ENVIROMENTAL(Bollino_Ambientale) `VARCHAR(20) NULL` 
+- Create_at(Creato) `DATETIME DEFAULT(now())`
+- Update_at(Aggiornamento) `DATETIME DEFAULT(now())`
