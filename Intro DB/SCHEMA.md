@@ -12,9 +12,12 @@ Columns:
 - VIN_NUMBER (Numero di matricola) `CHAR(18) NOT NULL, UNIQUE`
 - Brand `VARCHAR(100) NOT NULL`
 - Model `CHAR(80) NOT NULL`
+- Price (prezzo) `FLOAT(8,2) NOT NULL`
+- Immage_url `VARCHAR(255max) NULL`
 - Car_Type (Tipo_di_Auto) `VARCHAR(80) NOT NULL` 
 - Car_Segment (Segmento_Auto) `VARCHAR(50) NULL`
 - LICENSE_PLATE (Targha) `VARCHAR(20) NOT NULL, UNIQUE`
+- Km `FLOAT(8,2) NOT NULL`
 - Fuel_Type (Carburante) `VARCHAR(30) NOT NULL` 
 - How_Many_Owners(Proprietari) `TINYINT NOT NULL`
 - REGISTRATION_YEAR(Anno_di_immatricolazione)  `YEAR or INT NOT NULL`
