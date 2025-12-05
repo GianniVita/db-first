@@ -17,13 +17,30 @@ AND departments.name = 'Dipartimento di Neuroscienze'
  JOIN courses ON course_id = courses.id
  WHERE teachers.name =  'Fulvio'
  AND teachers.surname = 'Amato' 
--- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui
--- sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
--- nome
+-- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+SELECT students.name, students.surname, degrees.name, departments.name
+FROM students
+JOIN degrees ON students.degree_id = degrees.id
+JOIN departments ON degrees.department_id = departments.id
+ORDER BY students.surname, students.name
+
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
--- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
--- Matematica (54)
--- 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
--- per ogni esame, stampando anche il voto massimo. Successivamente,
--- filtrare i tentativi con voto minimo 18.
+SELECT degrees.name AS corsodilaurea, courses.name AS nomecorsi, teachers.name AS nome, teachers.surname AS cognome
+FROM degrees
+JOIN courses ON courses.degree_id = degrees.id
+JOIN course_teacher ON courses.id = course_teacher.course_id
+JOIN teachers ON teachers.id = course_teacher.teacher_id
+
+
+-- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+SELECT teachers.name,teachers.surname,degrees.address, degrees.level, departments.name AS departments_name, departments.head_of_department
+FROM teachers
+JOIN course_teacher ON course_teacher.teacher_id = teachers.id
+JOIN courses ON course_teacher.course_id = courses.id
+JOIN degrees ON degrees.id = courses.degree_id
+JOIN departments ON degrees.department_id = departments.id
+WHERE departments.id = 5
+
+
+-- 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente,filtrare i tentativi con voto minimo 18.
 
